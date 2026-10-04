@@ -1,0 +1,195 @@
+{
+  "script": "dfs_architecture_test.py",
+  "timestamp": "20261004_171610_894032",
+  "data_file": "C:\\Users\\23192\\Desktop\\DFS\\GM12878_200bp_Data.txt",
+  "labels_file": "C:\\Users\\23192\\Desktop\\DFS\\GM12878_200bp_Classes.txt",
+  "model_config": {
+    "class": "DFS",
+    "input_dim": 102,
+    "hidden_dims": [
+      256,
+      128
+    ],
+    "output_dim": 7,
+    "activation": "tanh",
+    "learnable_input_weights": true,
+    "dense_bias": true,
+    "initialization": "input weights=1; hidden uniform +/-sqrt(6/(in+out)), bias=0; output weights and bias=0"
+  },
+  "run_parameters": {
+    "torch_manual_seed": 42,
+    "split_random_state": 1000,
+    "epochs": 1000,
+    "batch_size": 100,
+    "shuffle": true,
+    "drop_last": false,
+    "num_workers": 0,
+    "device": "cpu",
+    "dtype": "float32",
+    "optimizer": "SGD",
+    "optimizer_parameters": {
+      "lr": 0.1,
+      "momentum": 0.1,
+      "dampening": 0,
+      "weight_decay": 0,
+      "nesterov": false,
+      "maximize": false,
+      "foreach": null,
+      "differentiable": false,
+      "fused": null
+    },
+    "loss": "CrossEntropyLoss(mean) + lambda1 * L1(input_weights) + alpha1/2 * L2(dense weights)",
+    "lambda1": 0.01,
+    "alpha1": 0.0001,
+    "bias_regularization": false,
+    "history_loss_average": "batch losses weighted by batch sample count",
+    "CWR": "arithmetic mean of recall over all encoded classes; absent classes=0; evaluation only"
+  },
+  "preprocessing": {
+    "method": "per-sample L2 normalization",
+    "axis": 1,
+    "norm_dtype": "float64",
+    "output_dtype": "float32",
+    "zero_norm_denominator": 1,
+    "fitted_parameters": null,
+    "inference": "divide each input row by its own L2 norm; keep zero rows unchanged"
+  },
+  "data_split": {
+    "method": "two stratified train_test_split calls, shuffle=True",
+    "first_test_size": 0.6666666666666666,
+    "second_test_size": 0.5,
+    "random_state": 1000,
+    "index_convention": "zero-based original data rows; indices preserve split order"
+  },
+  "sample_counts": {
+    "all": 20878,
+    "train": 6959,
+    "validation": 6959,
+    "test": 6960
+  },
+  "class_counts": {
+    "all": {
+      "A-E": 2878,
+      "A-P": 3000,
+      "A-X": 3000,
+      "I-E": 3000,
+      "I-P": 3000,
+      "I-X": 3000,
+      "UK": 3000
+    },
+    "train": {
+      "A-E": 959,
+      "A-P": 1000,
+      "A-X": 1000,
+      "I-E": 1000,
+      "I-P": 1000,
+      "I-X": 1000,
+      "UK": 1000
+    },
+    "validation": {
+      "A-E": 959,
+      "A-P": 1000,
+      "A-X": 1000,
+      "I-E": 1000,
+      "I-P": 1000,
+      "I-X": 1000,
+      "UK": 1000
+    },
+    "test": {
+      "A-E": 960,
+      "A-P": 1000,
+      "A-X": 1000,
+      "I-E": 1000,
+      "I-P": 1000,
+      "I-X": 1000,
+      "UK": 1000
+    }
+  },
+  "classes": [
+    "A-E",
+    "A-P",
+    "A-X",
+    "I-E",
+    "I-P",
+    "I-X",
+    "UK"
+  ],
+  "class_to_index": {
+    "A-E": 0,
+    "A-P": 1,
+    "A-X": 2,
+    "I-E": 3,
+    "I-P": 4,
+    "I-X": 5,
+    "UK": 6
+  },
+  "selection_rule": "highest validation accuracy; strict improvement, earlier epoch wins ties",
+  "selected_validation_accuracy": 0.6604397183503377,
+  "selected_validation_cwr": 0.6614452554744525,
+  "selected_epoch": 941
+}
+Status: completed.
+
+Validation results (selected model)
+Accuracy = 0.66043972 (66.0440%)
+CWR = 0.66144526 (66.1445%)
+Recall by class:
+  A-E: 0.83211679 (83.2117%)
+  A-P: 0.89500000 (89.5000%)
+  A-X: 0.90100000 (90.1000%)
+  I-E: 0.29700000 (29.7000%)
+  I-P: 0.55300000 (55.3000%)
+  I-X: 0.38200000 (38.2000%)
+  UK: 0.77000000 (77.0000%)
+
+Confusion matrix (raw counts): rows = true, columns = predicted
+True / Pred          A-E         A-P         A-X         I-E         I-P         I-X          UK
+A-E                  798          75          18          37          20           1          10
+A-P                   32         895          64           0           9           0           0
+A-X                    8          76         901           2           8           0           5
+I-E                   36           0           4         297         137         100         426
+I-P                   25          11          53          71         553         175         112
+I-X                    7           7           6          81         298         382         219
+UK                     4           0          16          76          70          64         770
+
+Confusion matrix (row percentages): rows = true, columns = predicted
+True / Pred          A-E         A-P         A-X         I-E         I-P         I-X          UK
+A-E               83.21%       7.82%       1.88%       3.86%       2.09%       0.10%       1.04%
+A-P                3.20%      89.50%       6.40%       0.00%       0.90%       0.00%       0.00%
+A-X                0.80%       7.60%      90.10%       0.20%       0.80%       0.00%       0.50%
+I-E                3.60%       0.00%       0.40%      29.70%      13.70%      10.00%      42.60%
+I-P                2.50%       1.10%       5.30%       7.10%      55.30%      17.50%      11.20%
+I-X                0.70%       0.70%       0.60%       8.10%      29.80%      38.20%      21.90%
+UK                 0.40%       0.00%       1.60%       7.60%       7.00%       6.40%      77.00%
+
+Test results (selected model)
+Accuracy = 0.65991379 (65.9914%)
+CWR = 0.66083929 (66.0839%)
+Recall by class:
+  A-E: 0.82187500 (82.1875%)
+  A-P: 0.91100000 (91.1000%)
+  A-X: 0.88500000 (88.5000%)
+  I-E: 0.30900000 (30.9000%)
+  I-P: 0.53400000 (53.4000%)
+  I-X: 0.39600000 (39.6000%)
+  UK: 0.76900000 (76.9000%)
+
+Confusion matrix (raw counts): rows = true, columns = predicted
+True / Pred          A-E         A-P         A-X         I-E         I-P         I-X          UK
+A-E                  789          77          16          37          26           2          13
+A-P                   26         911          53           0          10           0           0
+A-X                    5          79         885           1          21           0           9
+I-E                   31           0           4         309         140          87         429
+I-P                   14           8          65          85         534         187         107
+I-X                   10           6           9          63         285         396         231
+UK                     2           0           8          80          68          73         769
+
+Confusion matrix (row percentages): rows = true, columns = predicted
+True / Pred          A-E         A-P         A-X         I-E         I-P         I-X          UK
+A-E               82.19%       8.02%       1.67%       3.85%       2.71%       0.21%       1.35%
+A-P                2.60%      91.10%       5.30%       0.00%       1.00%       0.00%       0.00%
+A-X                0.50%       7.90%      88.50%       0.10%       2.10%       0.00%       0.90%
+I-E                3.10%       0.00%       0.40%      30.90%      14.00%       8.70%      42.90%
+I-P                1.40%       0.80%       6.50%       8.50%      53.40%      18.70%      10.70%
+I-X                1.00%       0.60%       0.90%       6.30%      28.50%      39.60%      23.10%
+UK                 0.20%       0.00%       0.80%       8.00%       6.80%       7.30%      76.90%

@@ -1,0 +1,13 @@
+row_type,architecture,seed,best_epoch,validation_accuracy,validation_cwr,test_accuracy,test_cwr,validation_accuracy_mean,validation_accuracy_sd,test_accuracy_mean,test_accuracy_sd,validation_cwr_mean,validation_cwr_sd,test_cwr_mean,test_cwr_sd,num_seeds,sd_ddof,checkpoint
+run,"[64,32]",42,876,0.658284236,0.659302398,0.658908046,0.659910714,,,,,,,,,,,C:\Users\23192\Desktop\DFS\DFS\results\dfs_architecture_test\20261004_171610_894032\64_32\seed_42\best_model.pt
+run,"[64,32]",123,863,0.661014514,0.662297631,0.658477011,0.659684524,,,,,,,,,,,C:\Users\23192\Desktop\DFS\DFS\results\dfs_architecture_test\20261004_171610_894032\64_32\seed_123\best_model.pt
+run,"[64,32]",2026,867,0.661014514,0.662291524,0.659482759,0.660702381,,,,,,,,,,,C:\Users\23192\Desktop\DFS\DFS\results\dfs_architecture_test\20261004_171610_894032\64_32\seed_2026\best_model.pt
+run,"[128,64]",42,821,0.66144561,0.662597944,0.657902299,0.65902381,,,,,,,,,,,C:\Users\23192\Desktop\DFS\DFS\results\dfs_architecture_test\20261004_171610_894032\128_64\seed_42\best_model.pt
+run,"[128,64]",123,914,0.659577526,0.66086906,0.657614943,0.658928571,,,,,,,,,,,C:\Users\23192\Desktop\DFS\DFS\results\dfs_architecture_test\20261004_171610_894032\128_64\seed_123\best_model.pt
+run,"[128,64]",2026,442,0.659290128,0.660412334,0.657183908,0.658244048,,,,,,,,,,,C:\Users\23192\Desktop\DFS\DFS\results\dfs_architecture_test\20261004_171610_894032\128_64\seed_2026\best_model.pt
+run,"[256,128]",42,941,0.660439718,0.661445255,0.659913793,0.660839286,,,,,,,,,,,C:\Users\23192\Desktop\DFS\DFS\results\dfs_architecture_test\20261004_171610_894032\256_128\seed_42\best_model.pt
+run,"[256,128]",123,968,0.659433827,0.660591837,0.657758621,0.658875,,,,,,,,,,,C:\Users\23192\Desktop\DFS\DFS\results\dfs_architecture_test\20261004_171610_894032\256_128\seed_123\best_model.pt
+run,"[256,128]",2026,617,0.660008622,0.66117548,0.658045977,0.659166667,,,,,,,,,,,C:\Users\23192\Desktop\DFS\DFS\results\dfs_architecture_test\20261004_171610_894032\256_128\seed_2026\best_model.pt
+summary,"[64,32]",,,,,,,0.660104421,0.001576326,0.658955939,0.000504581,0.661297185,0.001727538,0.660099206,0.000534467,3,1,
+summary,"[128,64]",,,,,,,0.660104421,0.001170359,0.65756705,0.000361582,0.661293113,0.001152861,0.658732143,0.000425377,3,1,
+summary,"[256,128]",,,,,,,0.659960722,0.000504654,0.658572797,0.001170191,0.661070858,0.000436223,0.659626984,0.001059964,3,1,
